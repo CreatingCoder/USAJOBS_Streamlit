@@ -101,7 +101,7 @@ with st.container():
             except:
                 pass
             try:
-                st.subheader('Top 3 Job Series found:')
+                
                 pie_plot = go.Figure(go.Pie(
                     labels=my_labels,            # Labels for the pie slices (has Occ Series numb + label)
                     values=[thisdict[my_keys[0]], thisdict[my_keys[1]], thisdict[my_keys[2]]],            # Number of jobs found
@@ -112,7 +112,7 @@ with st.container():
                     hoverinfo='label',# Information to display on hover
                     marker=dict(colors=['blue', 'green', 'red'], line=dict(color='white', width=0))  # Customize colors and borders
                 ))
-
+                st.subheader('Top 3 Job Series found:')
                 st.plotly_chart(pie_plot)
             except:
                 pass
