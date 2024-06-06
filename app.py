@@ -100,20 +100,21 @@ with st.container():
 
             except:
                 pass
+            try:
+                pie_plot = go.Figure(go.Pie(
+                    labels=my_labels,            # Labels for the pie slices (has Occ Series numb + label)
+                    values=[thisdict[my_keys[0]], thisdict[my_keys[1]], thisdict[my_keys[2]]],            # Number of jobs found
+                    name='Pie Chart', 
+                    title='Top 3 Job Series:',
+                    pull=[0, 0, 0],         # Specify how much each slice should be pulled from the center (optional)
+                    textinfo='value', # Information to display on the pie slices
+                    hoverinfo='label',# Information to display on hover
+                    marker=dict(colors=['blue', 'green', 'red'], line=dict(color='white', width=0))  # Customize colors and borders
+                ))
 
-            pie_plot = go.Figure(go.Pie(
-                labels=my_labels,            # Labels for the pie slices (has Occ Series numb + label)
-                values=[thisdict[my_keys[0]], thisdict[my_keys[1]], thisdict[my_keys[2]]],            # Number of jobs found
-                name='Pie Chart', 
-                title='Top 3 Job Series:',
-                pull=[0, 0, 0],         # Specify how much each slice should be pulled from the center (optional)
-                textinfo='value', # Information to display on the pie slices
-                hoverinfo='label',# Information to display on hover
-                marker=dict(colors=['blue', 'green', 'red'], line=dict(color='white', width=0))  # Customize colors and borders
-            ))
-
-            st.plotly_chart(pie_plot)
-   
+                st.plotly_chart(pie_plot)
+            except:
+                pass
         with st.container(border=False):
     
             
