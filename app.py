@@ -60,7 +60,7 @@ with st.container():
 
         host = 'data.usajobs.gov';  
         BASE_URL = f'https://data.usajobs.gov/api/search?{job_code}Keyword={job_search}&rmi=true&ResultsPerPage=500'
-        API_KEY = open('api_key.txt', 'r').read()
+        API_KEY = st.secrets["auth_token"]
         response = requests.get(BASE_URL, headers={"Host":host,  "Authorization-Key":API_KEY}).json()
         num_of_jobs = int(response['SearchResult']['SearchResultCount'])#All
         st.subheader( f'{num_of_jobs} Jobs Found ' )
