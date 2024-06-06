@@ -60,7 +60,7 @@ with st.container():
 
         host = 'data.usajobs.gov';  
         BASE_URL = f'https://data.usajobs.gov/api/search?{job_code}Keyword={job_search}&rmi=true&ResultsPerPage=500'
-        API_KEY = st.secrets["auth_token"]
+        API_KEY = open('api_key.txt', 'r').read()
         response = requests.get(BASE_URL, headers={"Host":host,  "Authorization-Key":API_KEY}).json()
         num_of_jobs = int(response['SearchResult']['SearchResultCount'])#All
         st.subheader( f'{num_of_jobs} Jobs Found ' )
@@ -145,7 +145,7 @@ with st.container():
                         executed = 0
                         #Prints occupational series in container
                         for j in range(num_of_series):
-                             series_str += f'{response['SearchResult']['SearchResultItems'][i]['MatchedObjectDescriptor']['JobCategory'][j]['Code']}'  
+                             series_str = series_str + str(response['SearchResult']['SearchResultItems'][i]['MatchedObjectDescriptor']['JobCategory'][j]['Code']) 
                              name =str([k for k in occ_series if response['SearchResult']['SearchResultItems'][i]['MatchedObjectDescriptor']['JobCategory'][j]['Code'] in k])
                              name_edit = name.partition("-")[2]
                              name_edit = name_edit[:-2]
