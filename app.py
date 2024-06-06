@@ -89,13 +89,17 @@ with st.container():
             st.subheader('Top 3 Job Series found:')
             #create new list 
             my_labels = ['','','']
-            #get name of occupational series from list
-            for i in range(3):
-                res = str([j for j in occ_series if str(my_keys[i]) in j])
-                res_edited = res.partition("-")[2]
-                res_edited = res_edited[:-2]
-                my_labels[i] = my_keys[i] + ' - ' + res_edited
 
+            #get name of occupational series from list
+            try:
+                for i in range(3):
+                    res = str([j for j in occ_series if str(my_keys[i]) in j])
+                    res_edited = res.partition("-")[2]
+                    res_edited = res_edited[:-2]
+                    my_labels[i] = my_keys[i] + ' - ' + res_edited
+
+            except:
+                pass
 
             pie_plot = go.Figure(go.Pie(
                 labels=my_labels,            # Labels for the pie slices (has Occ Series numb + label)
