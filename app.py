@@ -86,7 +86,7 @@ with st.container():
             pass
             
         else:
-            st.subheader('Top 3 Job Series found:')
+            #st.subheader('Top 3 Job Series found:')
             #create new list 
             my_labels = ['','','']
 
@@ -101,6 +101,7 @@ with st.container():
             except:
                 pass
             try:
+                st.subheader('Top 3 Job Series found:')
                 pie_plot = go.Figure(go.Pie(
                     labels=my_labels,            # Labels for the pie slices (has Occ Series numb + label)
                     values=[thisdict[my_keys[0]], thisdict[my_keys[1]], thisdict[my_keys[2]]],            # Number of jobs found
