@@ -148,7 +148,7 @@ with st.container():
                         num_of_series = len(response['SearchResult']['SearchResultItems'][i]['MatchedObjectDescriptor']['JobCategory'])
                         series_str = ''
 
-                        executed = 0
+                        
                         #Prints occupational series in container
                         for j in range(num_of_series):
                              series_str = series_str + str(response['SearchResult']['SearchResultItems'][i]['MatchedObjectDescriptor']['JobCategory'][j]['Code']) 
