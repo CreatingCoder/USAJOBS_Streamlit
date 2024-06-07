@@ -82,6 +82,8 @@ with st.container():
         #gets top 3 values from dict
         my_keys = sorted(thisdict, key=thisdict.get, reverse=True)[:3]
 
+
+        #if the dropdown box didn't specify a job series and was set to 'Any'
         if job_code != '':
             pass
             
@@ -90,6 +92,8 @@ with st.container():
             #create new list 
             my_labels = ['','','']
 
+
+            
             #get name of occupational series from list
             try:
                 for i in range(3):
@@ -100,6 +104,8 @@ with st.container():
 
             except:
                 pass
+
+            
             try:
                 
                 pie_plot = go.Figure(go.Pie(
@@ -116,9 +122,11 @@ with st.container():
                 st.plotly_chart(pie_plot)
             except:
                 pass
+    
+        
+        
         with st.container(border=False):
     
-            
             #Creates individual containers withing the main container
             for i in range(num_of_jobs):
 
