@@ -107,7 +107,6 @@ with st.container():
 
             
             try:
-                
                 pie_plot = go.Figure(go.Pie(
                     labels=my_labels,            # Labels for the pie slices (has Occ Series numb + label)
                     values=[thisdict[my_keys[0]], thisdict[my_keys[1]], thisdict[my_keys[2]]],            # Number of jobs found
